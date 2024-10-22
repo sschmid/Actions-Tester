@@ -7,6 +7,11 @@ on:
     branches: [main]
 
 jobs:
+  env:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $BASH_VERSION
+
   xclip:
     runs-on: ubuntu-latest
     steps:
