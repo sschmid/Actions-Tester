@@ -14,6 +14,8 @@ jobs:
           echo $BASH_VERSION
           gpg --version
           which file
+          which xdg-open
+          which gnome-open
 
   xclip:
     runs-on: ubuntu-latest
