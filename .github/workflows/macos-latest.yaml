@@ -10,4 +10,9 @@ jobs:
   test:
     runs-on: macos-latest
     steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
       - run: src/run
