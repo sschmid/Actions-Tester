@@ -7,12 +7,33 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  xclip:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xclip
       - name: "Checkout"
         uses: actions/checkout@v4
         with:
           submodules: recursive
+      - run: src/run
 
+  xsel:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xsel
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - run: src/run
+
+
+  wl-clipboard:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing wl-clipboard
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
       - run: src/run
