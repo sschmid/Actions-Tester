@@ -16,10 +16,9 @@ jobs:
         with:
           submodules: recursive
       - name: Set up virtual display (Xvfb)
+        run: Xvfb :99 &
+      - name: Run
         run: |
-          Xvfb :99 &
-          export DISPLAY=:99
-      - run: |
           export DISPLAY=:99
           src/run
 
@@ -32,10 +31,9 @@ jobs:
         with:
           submodules: recursive
       - name: Set up virtual display (Xvfb)
+        run: Xvfb :99 &
+      - name: Run
         run: |
-          Xvfb :99 &
-          export DISPLAY=:99
-      - run: |
           export DISPLAY=:99
           src/run
 
@@ -48,9 +46,8 @@ jobs:
         with:
           submodules: recursive
       - name: Set up virtual display (Xvfb)
+        run: Xvfb :99 &
+      - name: Run
         run: |
-          Xvfb :99 &
-          export DISPLAY=:99
-      - run: |
           export DISPLAY=:99
           src/run
