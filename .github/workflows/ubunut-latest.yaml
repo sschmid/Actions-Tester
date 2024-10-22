@@ -13,6 +13,7 @@ jobs:
       - run: |
           echo $BASH_VERSION
           gpg --version
+          echo abc123 | tr -dc '[:graph:]'
           which file
           which xdg-open
           which gnome-open
