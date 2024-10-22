@@ -13,6 +13,7 @@ jobs:
       - run: |
           echo $BASH_VERSION
           gpg --version
+          which file
 
   xclip:
     runs-on: ubuntu-latest
