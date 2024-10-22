@@ -10,7 +10,9 @@ jobs:
   env:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $BASH_VERSION
+      - run: |
+          echo $BASH_VERSION
+          which gpg
 
   xclip:
     runs-on: ubuntu-latest
