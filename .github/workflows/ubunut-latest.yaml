@@ -10,30 +10,47 @@ jobs:
   xclip:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xclip
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xclip xvfb
       - name: "Checkout"
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: src/run
+      - name: Set up virtual display (Xvfb)
+        run: |
+          Xvfb :99 &
+          export DISPLAY=:99
+      - run: |
+          export DISPLAY=:99
+          src/run
 
   xsel:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xsel
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing xsel xvfb
       - name: "Checkout"
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: src/run
-
+      - name: Set up virtual display (Xvfb)
+        run: |
+          Xvfb :99 &
+          export DISPLAY=:99
+      - run: |
+          export DISPLAY=:99
+          src/run
 
   wl-clipboard:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get update && sudo apt-get install -y --fix-missing wl-clipboard
+      - run: sudo apt-get update && sudo apt-get install -y --fix-missing wl-clipboard xvfb
       - name: "Checkout"
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: src/run
+      - name: Set up virtual display (Xvfb)
+        run: |
+          Xvfb :99 &
+          export DISPLAY=:99
+      - run: |
+          export DISPLAY=:99
+          src/run
