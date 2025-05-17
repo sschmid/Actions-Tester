@@ -11,6 +11,7 @@ jobs:
       - run: |
           sleep 10
           echo "job1 done"
+          exit 1
 
   job2:
     needs: job1
