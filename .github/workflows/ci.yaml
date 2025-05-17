@@ -21,7 +21,8 @@ jobs:
           sleep 20
           echo "job2 done"
 
-  job3:
+  deploy:
+    needs: [test, cover]
     runs-on: ubuntu-latest
     steps:
       - run: |
