@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  job1:
+  test:
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -13,8 +13,8 @@ jobs:
           echo "job1 done"
           exit 1
 
-  job2:
-    needs: job1
+  cover:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -22,7 +22,6 @@ jobs:
           echo "job2 done"
 
   job3:
-    needs: [job2]
     runs-on: ubuntu-latest
     steps:
       - run: |
