@@ -1,15 +1,12 @@
-name: macos-latest-ci
+name: deploy
 
 on:
   push:
-    branches: [main, develop]
-    paths: ['src/**']
-  pull_request:
     branches: [main]
 
 jobs:
-  test:
-    runs-on: macos-latest
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
         uses: actions/checkout@v4

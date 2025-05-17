@@ -1,0 +1,27 @@
+name: jobs
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 10
+          echo "job1 done"
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 20
+          echo "job2 done"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sleep 30
+          echo "job3 done"
