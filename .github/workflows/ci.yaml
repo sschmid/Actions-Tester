@@ -7,24 +7,23 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - alpine
+          - archlinux
+          - debian
+          - fedora
+          - opensuse-tumbleweed
+          - ubuntu
+
     steps:
       - run: |
           sleep 10
-          echo "job1 done"
-          exit 1
+          echo "Running tests on ${{ matrix.distro }}"
 
-  cover:
-    needs: test
+  build:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          sleep 20
-          echo "job2 done"
-
-  deploy:
-    needs: [test, cover]
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          sleep 30
-          echo "job3 done"
+      - run: echo "Build done"
