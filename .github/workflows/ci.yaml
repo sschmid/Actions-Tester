@@ -21,6 +21,7 @@ jobs:
       - run: |
           sleep 10
           echo "Running tests on ${{ matrix.distro }}"
+          [[ "${{ matrix.distro }}" != "debian" ]]
 
   build:
     needs: [test]
