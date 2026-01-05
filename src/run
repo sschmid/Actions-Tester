@@ -5,3 +5,9 @@ echo "Running the script..."
 echo "HOME: ${HOME}"
 [[ "${HOME}" != *"/runner/work/"* ]] || echo "Is GitHub Action"
 echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+
+skip_if_github_action() {
+  [[ "${GITHUB_ACTIONS}" != "true" ]] || echo "skip"
+}
+
+skip_if_github_action
