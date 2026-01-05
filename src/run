@@ -2,3 +2,5 @@
 set -euo pipefail
 IFS=$'\n\t'
 echo "Running the script..."
+echo "HOME: ${HOME}"
+[[ "${HOME}" != *"/runner/work/"* ]] || echo "Is GitHub Action"
